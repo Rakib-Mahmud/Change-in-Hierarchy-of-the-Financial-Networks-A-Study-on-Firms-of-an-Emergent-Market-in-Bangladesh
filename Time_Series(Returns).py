@@ -23,10 +23,11 @@ for i in range(start_year,end_year):
 Fmatrix = np.zeros((number_years,window,N))
 for A in dataset:
     nrows, ncols = A.shape
+    col_name = A.columns
     X = A.iloc[:,:].values  
     for i in range(1,nrows):
         for j in range(0,ncols):
-            Fmatrix[i-1,j] = np.log(X[i,j])-np.log(X[i-1,j])
+            Fmatrix[i-1,j] = (np.log(X[i,j])-np.log(X[i-1,j]))/A[col_name[j]].std()
                 
 #Store the time series as CSV            
 for i in range(0,number_years-1):

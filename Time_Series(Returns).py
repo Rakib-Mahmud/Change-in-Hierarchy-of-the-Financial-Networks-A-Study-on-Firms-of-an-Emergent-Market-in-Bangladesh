@@ -7,7 +7,7 @@ start_year = 2008
 end_year = 2021
 number_years = end_year - start_year + 1
 N = 110
-window = 265
+window = 237
 
 #Import Dataset
 for x in range(start_year,end_year):
